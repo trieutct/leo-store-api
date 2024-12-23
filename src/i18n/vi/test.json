@@ -1,0 +1,21 @@
+{
+  "HELLO": "Xin chào",
+  "PRODUCT": {
+    "NEW": "Sản phẩm mới: {name}"
+  },
+  "ENGLISH": "English",
+  "ARRAY": ["ONE", "TWO", "THREE"],
+  "cat": "Cat",
+  "cat_name": "Cat: {name}",
+  "set-up-password": {
+    "heading": "Xin chào, {username}",
+    "title": "Quên mật khẩu",
+    "followLink": "Vui lòng theo liên kết để thiết lập mật khẩu của bạn"
+  },
+  "day_interval": {
+    "one": "Mỗi ngày",
+    "other": "Mỗi {count} ngày",
+    "zero": "Không bao giờ"
+  },
+  "nested": "Chúng tôi đi mua sắm: $t(test.day_interval, {{\"count\": {count} }})"
+}
