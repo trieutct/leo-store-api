@@ -6,6 +6,7 @@ import { HeaderResolver, I18nModule, QueryResolver } from 'nestjs-i18n';
 import { UsersModule } from './users/users.module';
 import * as path from 'path';
 import { MongooseModule } from '@nestjs/mongoose';
+import { HttpExceptionFilter } from './common/filters/exceptions.filter';
 
 @Module({
   imports: [
@@ -31,6 +32,14 @@ import { MongooseModule } from '@nestjs/mongoose';
     }),
   ],
   controllers: [AppController],
-  providers: [AppService, ConfigService],
+  providers: [
+    AppService,
+    ConfigService,
+    {
+      provide: 'APP_FILTER',
+      scope: 2,
+      useClass: HttpExceptionFilter,
+    },
+  ],
 })
 export class AppModule {}
