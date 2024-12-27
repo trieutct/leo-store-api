@@ -1,5 +1,6 @@
 export enum ConfigKey {
   PORT = 'PORT',
+  DB_URL = 'DB_URL',
 }
 
 export enum HttpStatus {
