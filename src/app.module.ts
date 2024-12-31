@@ -7,11 +7,12 @@ import { UsersModule } from './users/users.module';
 import * as path from 'path';
 import { MongooseModule } from '@nestjs/mongoose';
 import { HttpExceptionFilter } from './common/filters/exceptions.filter';
+import { ConfigKey } from './common/constants';
 
 @Module({
   imports: [
     I18nModule.forRoot({
-      fallbackLanguage: 'en',
+      fallbackLanguage: 'vi',
       loaderOptions: { path: path.join(__dirname, '/i18n/'), watch: true },
       resolvers: [
         { use: QueryResolver, options: ['lang', 'locale'] },
@@ -26,7 +27,7 @@ import { HttpExceptionFilter } from './common/filters/exceptions.filter';
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (config: ConfigService) => ({
-        uri: config.get<string>('DB_URL'),
+        uri: config.get<string>(ConfigKey.DB_URL),
       }),
       inject: [ConfigService],
     }),
